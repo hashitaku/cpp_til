@@ -2,11 +2,16 @@
 
 namespace inv::sys{
 
-void resize(int width, int height){
+void resize([[maybe_unused]]int width, [[maybe_unused]]int height){
     glutReshapeWindow(inv::constant::window_size_width, inv::constant::window_size_height);
 }
 
-void load_tex(const std::string& filename, unsigned int* id){
+void load_tex(const std::filesystem::path& filename, unsigned int* id){
+
+	if(id == nullptr){
+		std::cerr << "load_tex *id is nullptr" << std::endl;
+		std::exit(1);
+	}
 
 	glGenTextures(1, id);
 

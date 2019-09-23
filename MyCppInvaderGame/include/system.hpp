@@ -1,7 +1,8 @@
 #ifndef INV_SYSTEM_HPP
 #define INV_SYSTEM_HPP
 
-#include<string>
+#include<filesystem>
+#include<iostream>
 #include<GL/freeglut.h>
 
 #include"include/constant.hpp"
@@ -10,7 +11,7 @@
 namespace inv::sys{
 
 void resize([[maybe_unused]]int width, [[maybe_unused]]int height);
-void load_tex(const std::string& filename, unsigned int* id);
+void load_tex(const std::filesystem::path& filename, unsigned int* id);
 
 }
 

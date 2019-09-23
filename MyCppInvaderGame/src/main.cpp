@@ -1,5 +1,5 @@
 #include<array>
-#include<iostream>
+#include<filesystem>
 #include<GL/freeglut.h>
 
 #include"include/constant.hpp"
@@ -7,13 +7,18 @@
 
 namespace inv::global{
 
-std::array<unsigned int, 3> texture_id = {};
+std::array<std::pair<std::filesystem::path, unsigned int>, 3> texture = {{{"texture/inv_1.png", 0},
+																 		  {"texture/inv_2.png", 0},
+																 		  {"texture/menu.png", 0}
+																		}};
 
 }
 
 int main(int argc, char* argv[]){
 
 	glutInit(&argc, argv);
+
+	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
 	
 	glutInitWindowPosition(inv::constant::window_position_x, inv::constant::window_position_y);
 	glutInitWindowSize(inv::constant::window_size_width, inv::constant::window_size_height);
@@ -22,9 +27,13 @@ int main(int argc, char* argv[]){
 	glutInitDisplayMode(GLUT_RGBA);
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
-	inv::sys::load_tex("texture/inv_1.png", &inv::global::texture_id[0]);
-	inv::sys::load_tex("texture/inv_2.png", &inv::global::texture_id[1]);
-	inv::sys::load_tex("texture/menu.png", &inv::global::texture_id[2]);
+	for(auto&& [filename, id] : inv::global::texture){
+		inv::sys::load_tex(filename, &id);
+	}
+
+	for(const auto& e : inv::global::texture){
+		std::cout << e.second << std::endl;
+	}
 
 	glutReshapeFunc(inv::sys::resize);
 
@@ -32,7 +41,9 @@ int main(int argc, char* argv[]){
 
 	glutMainLoop();
 
-	glDeleteTextures(3, inv::global::texture_id.data());
+	for(auto&& e : inv::global::texture){
+		glDeleteTextures(1, &e.second);
+	}
 
 	return 0;
 }

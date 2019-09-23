@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
 
 	glutReshapeFunc(inv::sys::resize);
 
-	// glutDisplayFunc(display);
+	glutDisplayFunc(inv::sys::display);
 
 	glutMainLoop();
 

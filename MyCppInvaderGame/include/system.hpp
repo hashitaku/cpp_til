@@ -7,11 +7,13 @@
 
 #include"include/constant.hpp"
 #include"include/stb_image.hpp"
+#include"include/draw.hpp"
 
 namespace inv::sys{
 
 void resize([[maybe_unused]]int width, [[maybe_unused]]int height);
 void load_tex(const std::filesystem::path& filename, unsigned int* id);
+void display();
 
 }
 

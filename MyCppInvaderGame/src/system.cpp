@@ -31,4 +31,8 @@ void load_tex(const std::filesystem::path& filename, unsigned int* id){
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 }
 
+void display(){
+	inv::draw::line({0.0, 0.0}, {10.0, 10.0});
+}
+
 }

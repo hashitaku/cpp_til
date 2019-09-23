@@ -6,4 +6,4 @@ add_executable(MyInvaderGame.out
     std_image.cpp
 )
 
-target_link_libraries(MyInvaderGame.out -lGL -lglut)
+target_link_libraries(MyInvaderGame.out -lGL -lglut -lstdc++fs -lpthread)

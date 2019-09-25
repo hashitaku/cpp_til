@@ -2,8 +2,10 @@
 
 namespace inv::sys{
 
-void resize([[maybe_unused]]int width, [[maybe_unused]]int height){
-    glutReshapeWindow(inv::constant::window_size_width, inv::constant::window_size_height);
+void resize(int width, int height){
+	glViewport(0, 0, width, height);
+	glLoadIdentity();
+	glOrtho(-width / 2.0, width / 2.0, -height / 2.0, height / 2.0, -1.0, 1.0);
 }
 
 void load_tex(const std::filesystem::path& filename, unsigned int* id){
@@ -32,7 +34,16 @@ void load_tex(const std::filesystem::path& filename, unsigned int* id){
 }
 
 void display(){
-	inv::draw::line({0.0, 0.0}, {10.0, 10.0});
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glutSwapBuffers();
+}
+
+void motion([[maybe_unused]]int x){
+	
+
+	glutPostRedisplay();
+	glutTimerFunc(inv::constant::sleep_milli_time, motion, 0);
 }
 
 }

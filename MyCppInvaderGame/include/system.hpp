@@ -9,11 +9,18 @@
 #include"include/stb_image.hpp"
 #include"include/draw.hpp"
 
+namespace inv::global{
+
+
+
+}
+
 namespace inv::sys{
 
-void resize([[maybe_unused]]int width, [[maybe_unused]]int height);
+void resize(int width, int height);
 void load_tex(const std::filesystem::path& filename, unsigned int* id);
 void display();
+void motion([[maybe_unused]]int x);
 
 }
 

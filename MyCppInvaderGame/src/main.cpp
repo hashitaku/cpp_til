@@ -1,5 +1,3 @@
-#include<array>
-#include<filesystem>
 #include<GL/freeglut.h>
 
 #include"include/structure.hpp"
@@ -13,7 +11,8 @@ inv::structure::Texture<3> texture = {{{"texture/inv_1.png", 0},
 									   {"texture/menu.png", 0}
 									 }};
 
-
+inv::structure::Window_number window_number = inv::structure::Window_number::Menu;
+inv::structure::Point<> mouse_point;
 
 }
 
@@ -34,13 +33,14 @@ int main(int argc, char* argv[]){
 		inv::sys::load_tex(filename, &id);
 	}
 
-	for(const auto& e : inv::global::texture){
-		std::cout << e.second << std::endl;
-	}
-
 	glutReshapeFunc(inv::sys::resize);
+	glutPassiveMotionFunc(inv::sys::mouse);
+	glutMotionFunc(inv::sys::mouse);
+	glutMouseFunc(inv::sys::mouse_button);
 	glutDisplayFunc(inv::sys::display);
 	glutTimerFunc(inv::constant::sleep_milli_time, inv::sys::motion, 0);
+
+	inv::sys::debug_log();
 
 	glutMainLoop();
 

@@ -1,8 +1,13 @@
 #ifndef INV_DRAW_HPP
 #define INV_DRAW_HPP
 
-#include"include/structure.hpp"
+#include<iostream>
+#include<charconv>
+#include<system_error>
 #include<GL/freeglut.h>
+
+#include"include/structure.hpp"
+#include"include/constant.hpp"
 
 namespace inv::global{
 
@@ -13,8 +18,11 @@ extern inv::structure::Texture<3> texture;
 
 namespace inv::draw{
 
-void point(inv::structure::Vertex<> vertex, inv::structure::RGB<> rgb, double point_size);
-void line(inv::structure::Vertex<> begin, inv::structure::Vertex<> end, inv::structure::RGB<> rgb, double line_width);
+void point(inv::structure::Point<> vertex, inv::structure::RGB<> rgb, double point_size);
+void line(inv::structure::Point<> begin, inv::structure::Point<> end, inv::structure::RGB<> rgb, double line_width);
+void menu();
+void number(uint64_t num, inv::structure::Point<> point, inv::structure::RGB<> rgb);
+void string(std::string str, inv::structure::Point<> point, inv::structure::RGB<> rgb);
 
 }
 

@@ -20,6 +20,8 @@ namespace inv::draw{
 
 void point(inv::structure::Point<> vertex, inv::structure::RGB<> rgb, double point_size);
 void line(inv::structure::Point<> begin, inv::structure::Point<> end, inv::structure::RGB<> rgb, double line_width);
+void square(inv::structure::Point<> left_bottom, inv::structure::Point<> left_up,
+            inv::structure::Point<> right_bottom, inv::structure::Point<> right_up, inv::structure::RGB<> rgb);
 void menu(inv::structure::RGB<> back_color);
 void number(uint64_t num, inv::structure::Point<> point, inv::structure::RGB<> rgb);
 void string(std::string str, inv::structure::Point<> point, inv::structure::RGB<> rgb);

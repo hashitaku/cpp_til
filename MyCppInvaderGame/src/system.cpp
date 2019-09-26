@@ -74,11 +74,25 @@ void display(){
 		glutSwapBuffers();
 	}else if(inv::global::window_number == inv::structure::Window_number::Game){
 		glClear(GL_COLOR_BUFFER_BIT);
-		inv::draw::string("Point:", {-320.0, -315.0}, {1.0, 1.0, 1.0});
-		// inv::draw::number(point, {-260.0,-315.0}, {1.0, 1.0, 1.0});
 
-		inv::draw::string("HP:", {260.0, -315.0}, {1.0, 1.0, 1.0});
+		/*スコア、背景描画*/
+		inv::draw::square({inv::constant::window_size_width / -2.0, inv::constant::window_size_height / -2.0},
+						  {inv::constant::window_size_width / -2.0, inv::constant::gameover_line},
+						  {inv::constant::window_size_width / 2.0, inv::constant::window_size_height / -2.0},
+						  {inv::constant::window_size_width / 2.0, inv::constant::gameover_line},
+						  inv::constant::Color<>::GREY);
+		inv::draw::string("Point:", {-320.0, -315.0}, inv::constant::Color<>::RED);
+		// inv::draw::number(point, {-260.0,-315.0}, {1.0, 1.0, 1.0});
+		inv::draw::string("HP:", {260.0, -315.0}, inv::constant::Color<>::RED);
 		// inv::draw::number(hodai_life, {300.0, -315.0}, {1.0, 1.0, 1.0});
+
+		/*自機描画*/
+		inv::draw::square({inv::global::mouse_point.first - 10.0, inv::constant::gameover_line},
+						  {inv::global::mouse_point.first - 10.0, inv::constant::gameover_line + 10.0},
+						  {inv::global::mouse_point.first + 10.0, inv::constant::gameover_line},
+						  {inv::global::mouse_point.first + 10.0, inv::constant::gameover_line + 10.0},
+						  inv::constant::Color<>::YELLOW);
+
 		glutSwapBuffers();
 	}else{
 		glClear(GL_COLOR_BUFFER_BIT);

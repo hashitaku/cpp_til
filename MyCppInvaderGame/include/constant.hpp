@@ -13,6 +13,7 @@ constexpr size_t window_size_width = 640;
 constexpr size_t window_size_height = 640;
 constexpr size_t sleep_milli_time = 15;
 constexpr const char* const window_name = "MyInvaderGame";
+constexpr double gameover_line = -290.0;
 
 template<typename Tp = double>
 struct Color{

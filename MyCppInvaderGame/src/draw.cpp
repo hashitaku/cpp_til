@@ -21,6 +21,19 @@ void line(inv::structure::Point<> begin, inv::structure::Point<> end, inv::struc
 	glEnd();
 }
 
+void square(inv::structure::Point<> left_bottom, inv::structure::Point<> left_up, 
+			inv::structure::Point<> right_bottom, inv::structure::Point<> right_up, inv::structure::RGB<> rgb){
+    
+    auto [r, g, b] = rgb;
+	glColor3d(r, g, b);
+	glBegin(GL_QUADS);
+	glVertex2d(left_bottom.first, left_bottom.second);
+	glVertex2d(left_up.first, left_up.second);
+	glVertex2d(right_up.first, right_up.second);
+	glVertex2d(right_bottom.first, right_bottom.second);
+	glEnd();
+}
+
 void menu(inv::structure::RGB<> back_color){
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, inv::global::texture.at(2).second);

@@ -64,12 +64,13 @@ void load_tex(const std::filesystem::path& filename, unsigned int* id){
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);
 }
 
 void display(){
 	if(inv::global::window_number == inv::structure::Window_number::Menu){
 		glClear(GL_COLOR_BUFFER_BIT);
-		inv::draw::menu();
+		inv::draw::menu(inv::constant::Color<>::BLACK);
 		glutSwapBuffers();
 	}else if(inv::global::window_number == inv::structure::Window_number::Game){
 		glClear(GL_COLOR_BUFFER_BIT);

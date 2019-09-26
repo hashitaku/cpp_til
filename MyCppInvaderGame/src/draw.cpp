@@ -21,10 +21,11 @@ void line(inv::structure::Point<> begin, inv::structure::Point<> end, inv::struc
 	glEnd();
 }
 
-void menu(){
+void menu(inv::structure::RGB<> back_color){
 	glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, inv::global::texture.at(2).second);
-	glColor3d(1.0, 1.0, 1.0);
+	auto [r, g, b] = back_color;
+	glColor3d(r, g, b);
 	glBegin(GL_QUADS);
 	glTexCoord2d(0.0, 0.0);
 	glVertex2d(inv::constant::window_size_width / -2.0, inv::constant::window_size_height / 2.0);

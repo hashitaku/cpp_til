@@ -9,7 +9,6 @@ add_executable(MyInvaderGame.out
 
 target_include_directories(MyInvaderGame.out PUBLIC "${PROJECT_SOURCE_DIR}/include")
 
-set(CMAKE_CXX_COMPILER "/home/takuma/local/bin/g++")
 target_compile_features(MyInvaderGame.out PUBLIC cxx_std_17)
 
 target_compile_options(MyInvaderGame.out PUBLIC

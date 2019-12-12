@@ -4,7 +4,8 @@
 #include<filesystem>
 #include<iostream>
 #include<fstream>
-#include<GL/freeglut.h>
+
+#include"GL/freeglut.h"
 
 #include"structure.hpp"
 #include"constant.hpp"

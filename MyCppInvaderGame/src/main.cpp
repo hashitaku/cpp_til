@@ -1,8 +1,8 @@
-#include<GL/freeglut.h>
+#include"GL/freeglut.h"
 
-#include<structure.hpp>
-#include<constant.hpp>
-#include<system.hpp>
+#include"structure.hpp"
+#include"constant.hpp"
+#include"system.hpp"
 
 namespace inv::global{
 

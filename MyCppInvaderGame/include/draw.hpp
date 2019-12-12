@@ -4,7 +4,8 @@
 #include<iostream>
 #include<charconv>
 #include<system_error>
-#include<GL/freeglut.h>
+
+#include"GL/freeglut.h"
 
 #include"structure.hpp"
 #include"constant.hpp"

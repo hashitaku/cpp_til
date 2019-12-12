@@ -6,8 +6,8 @@
 #include<system_error>
 #include<GL/freeglut.h>
 
-#include"include/structure.hpp"
-#include"include/constant.hpp"
+#include"structure.hpp"
+#include"constant.hpp"
 
 namespace inv::global{
 

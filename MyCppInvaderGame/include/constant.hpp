@@ -3,7 +3,7 @@
 
 #include<cstddef>
 
-#include"include/structure.hpp"
+#include"structure.hpp"
 
 namespace inv::constant{
 

@@ -6,10 +6,10 @@
 #include<fstream>
 #include<GL/freeglut.h>
 
-#include"include/structure.hpp"
-#include"include/constant.hpp"
-#include"include/stb_image.hpp"
-#include"include/draw.hpp"
+#include"structure.hpp"
+#include"constant.hpp"
+#include"stb_image.hpp"
+#include"draw.hpp"
 
 namespace inv::global{
 

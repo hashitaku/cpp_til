@@ -54,7 +54,7 @@ void menu(inv::structure::RGB<> back_color){
 
 void number(uint64_t num, inv::structure::Point<> point, inv::structure::RGB<> rgb){
 	std::array<char, 20> str = {};
-	auto [end_ptr, ec] = std::to_chars(str.begin(), str.end(), num, 10);
+	auto [end_ptr, ec] = std::to_chars(str.data(), str.data() + str.size(), num, 10);
 
 	if(ec == std::errc::value_too_large){
 		std::cerr << std::make_error_condition(ec).message() << std::endl;
@@ -65,7 +65,7 @@ void number(uint64_t num, inv::structure::Point<> point, inv::structure::RGB<> r
 	glColor3d(r, g, b);
 	glRasterPos2d(point.first, point.second);
 
-	for(auto it = str.begin(); it != end_ptr; it++){
+	for(auto it = str.data(); it != end_ptr; it++){
 		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, *it);
 	}
 }

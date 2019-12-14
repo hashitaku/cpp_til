@@ -52,7 +52,7 @@ void load_tex(const std::filesystem::path& filename, unsigned int* id){
 
     int width, height, channel;
 
-    auto texture = stbi_load(filename.c_str(), &width, &height, &channel, STBI_default);
+    auto texture = stbi_load(filename.string().c_str(), &width, &height, &channel, STBI_default);
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glBindTexture(GL_TEXTURE_2D, *id);

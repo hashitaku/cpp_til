@@ -32,6 +32,6 @@ target_compile_options(MyInvaderGame PUBLIC
 )
 
 target_link_libraries(MyInvaderGame PUBLIC
-    "$<$<PLATFORM_ID:Windows>:OpenGL32 freeglut_static>"
+    "$<$<PLATFORM_ID:Windows>:OpenGL32;freeglut_static>"
     "$<$<PLATFORM_ID:Linux>:GL;X11;Xxf86vm;Xrandr;Xi;freeglut_static>"
 )

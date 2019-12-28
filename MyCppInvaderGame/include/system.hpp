@@ -1,35 +1,38 @@
 #ifndef INV_SYSTEM_HPP
 #define INV_SYSTEM_HPP
 
-#include<filesystem>
-#include<iostream>
-#include<fstream>
+#include "GL/freeglut.h"
+#include "constant.hpp"
+#include "draw.hpp"
+#include "stb_image.hpp"
+#include "structure.hpp"
 
-#include"GL/freeglut.h"
+#include <array>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
 
-#include"structure.hpp"
-#include"constant.hpp"
-#include"stb_image.hpp"
-#include"draw.hpp"
+namespace inv::global {
 
-namespace inv::global{
+extern inv::structure::Texture<3>       texture;
+extern inv::structure::Window_number    window_number;
+extern inv::structure::Point<>          mouse_point;
+extern inv::structure::Enemy_set<5, 10> enemy_set;
 
-extern inv::structure::Texture<3> texture;
-extern inv::structure::Window_number window_number;
-extern inv::structure::Point<> mouse_point;
+} // namespace inv::global
 
-}
-
-namespace inv::sys{
+namespace inv::sys {
 
 void debug_log();
-void resize(int width, int height);
 void load_tex(const std::filesystem::path& filename, unsigned int* id);
-void display();
-void motion([[maybe_unused]]int x);
-void mouse(int x, int y);
-void mouse_button(int button, int state, [[maybe_unused]]int x, [[maybe_unused]]int y);
 
-}
+/*call back*/
+void resize(int width, int height);
+void display();
+void motion([[maybe_unused]] int x);
+void mouse(int x, int y);
+void mouse_button(int button, int state, [[maybe_unused]] int x, [[maybe_unused]] int y);
+
+} // namespace inv::sys
 
 #endif //INV_SYSTEM_HPP

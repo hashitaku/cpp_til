@@ -41,7 +41,7 @@ struct Enemy final {
     inv::structure::Point<> point_; // upper left points
     inv::structure::RGB<>   color_;
 
-    static constexpr size_t pixel_size = 32;
+    static constexpr size_t pixel_size_ = 32;
 
     Enemy() noexcept :
         is_dead_(true) {}
@@ -54,7 +54,7 @@ struct Enemy final {
 template<size_t N, size_t M>
 struct Enemy_set final {
     std::array<std::array<inv::structure::Enemy, M>, N> set_;
-    bool                                                is_move_left = true;
+    bool                                                is_move_left_ = true;
 
     Enemy_set(size_t window_width, size_t window_height) {
         this->init(window_width, window_height);

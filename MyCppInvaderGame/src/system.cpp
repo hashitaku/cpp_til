@@ -106,6 +106,41 @@ void display() {
 void motion([[maybe_unused]] int x) {
     if(inv::global::window_number == inv::structure::Window_number::Menu) {
         inv::global::enemy_set.init(inv::constant::window_size_width, inv::constant::window_size_height);
+    } else if(inv::global::window_number == inv::structure::Window_number::Game) {
+        if(inv::global::enemy_set.is_move_left_) {
+            for(auto&& v : inv::global::enemy_set.set_) {
+                for(auto&& e : v) {
+                    auto& [x, y] = e.point_;
+                    x -= 1.0;
+                }
+            }
+        } else {
+            for(auto&& v : inv::global::enemy_set.set_) {
+                for(auto&& e : v) {
+                    auto& [x, y] = e.point_;
+                    x += 1.0;
+                }
+            }
+        }
+
+        if((inv::global::enemy_set.set_[0][0].point_.first <= -(inv::constant::window_size_width / 2.0)) && (inv::global::enemy_set.is_move_left_)) {
+            inv::global::enemy_set.is_move_left_ = false;
+            for(auto&& v : inv::global::enemy_set.set_) {
+                for(auto&& e : v) {
+                    auto& [x, y] = e.point_;
+                    y -= e.pixel_size_;
+                }
+            }
+        } else if((inv::global::enemy_set.set_[0][0].point_.first >= 0.0) && (!inv::global::enemy_set.is_move_left_)) {
+            inv::global::enemy_set.is_move_left_ = true;
+            for(auto&& v : inv::global::enemy_set.set_) {
+                for(auto&& e : v) {
+                    auto& [x, y] = e.point_;
+                    y -= e.pixel_size_;
+                }
+            }
+        }
+    } else {
     }
 
     glutPostRedisplay();

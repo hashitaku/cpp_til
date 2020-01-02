@@ -44,11 +44,11 @@ void enemy(const inv::structure::Enemy& enemy) {
         glTexCoord2d(0.0, 0.0);
         glVertex2d(enemy.point_.first, enemy.point_.second);
         glTexCoord2d(0.0, 1.0);
-        glVertex2d(enemy.point_.first, enemy.point_.second - enemy.pixel_size);
+        glVertex2d(enemy.point_.first, enemy.point_.second - enemy.pixel_size_);
         glTexCoord2d(1.0, 1.0);
-        glVertex2d(enemy.point_.first + enemy.pixel_size, enemy.point_.second - enemy.pixel_size);
+        glVertex2d(enemy.point_.first + enemy.pixel_size_, enemy.point_.second - enemy.pixel_size_);
         glTexCoord2d(1.0, 0.0);
-        glVertex2d(enemy.point_.first + enemy.pixel_size, enemy.point_.second);
+        glVertex2d(enemy.point_.first + enemy.pixel_size_, enemy.point_.second);
         glEnd();
         glDisable(GL_TEXTURE_2D);
     }

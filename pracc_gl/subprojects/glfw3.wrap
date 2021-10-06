@@ -1,0 +1,6 @@
+[wrap-git]
+directory = glfw3
+
+url = https://github.com/glfw/glfw.git
+depth = 1
+revision = 3.3.4
